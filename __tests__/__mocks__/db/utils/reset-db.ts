@@ -4,7 +4,7 @@ import { readFakeData } from '../../fakeData';
 
 export const resetDB = async () => {
   // failsafe against resetting production db!
-  const safeToReset = process.env.NODE_ENV === 'test';
+  const safeToReset = process.env.NODE_ENV === 'test' || process.env.CYPRESS;
 
   if (!safeToReset) {
     // eslint-disable-next-line no-console
