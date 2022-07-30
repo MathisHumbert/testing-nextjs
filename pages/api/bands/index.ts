@@ -12,9 +12,10 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   // in this app, this endpoint will be hit by testing directly to test on-demand ISR revalidation
 
   // Check for secret to confirm this is a valid request
-  if (req.query.secret !== process.env.REVALIDATION_SECRET) {
-    return res.status(401).json({ message: 'Invalid revalidation token' });
-  }
+  // COMMENTED BECAUSE OF ERRORS
+  // if (req.query.secret !== process.env.REVALIDATION_SECRET) {
+  //   return res.status(401).json({ message: 'Invalid revalidation token' });
+  // }
 
   // add band (here is where authorization would be validated)
   const { newBand } = req.body;

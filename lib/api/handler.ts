@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import nextConnect from "next-connect";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import nextConnect from 'next-connect';
 
-import { validateToken } from "@/lib/auth/utils";
+import { validateToken } from '@/lib/auth/utils';
 
-import { processApiError } from "./utils";
+import { processApiError } from './utils';
 
 // base handler for centralized error and method handling
 export const createHandler = ({

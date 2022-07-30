@@ -15,14 +15,24 @@
 
 const { resetDB } = require('../../__tests__/__mocks__/db/utils/reset-db');
 const { addBand } = require('../../lib/features/bands/queries');
+const { addReservation } = require('../../lib/features/reservations/queries');
 
 /**
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
+  // eslint-disable-next-line no-param-reassign
+  config.env.REVALIDATION_SECRET = process.env.REVALIDATION_SECRET;
+  // to access within a test function:
+  //  Cypress.env("REVALIDATION_SECRET")
+
   on('task', {
     'db:reset': () => resetDB().then(() => null),
     addBand: (newBand) => addBand(newBand).then(() => null),
+    addReservation: (newReservation) =>
+      addReservation(newReservation).then(() => null),
   });
+
+  return config;
 };
