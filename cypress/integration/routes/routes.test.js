@@ -1,5 +1,5 @@
-import { generateNewBand } from '../../__tests__/__mocks__/fakeData/newBand';
-import { generateRandomId } from '../../lib/features/reservations/utils';
+import { generateNewBand } from '../../../__tests__/__mocks__/fakeData/newBand';
+import { generateRandomId } from '../../../lib/features/reservations/utils';
 
 it('displays correct heading when navigating to shows route', () => {
   cy.visit('/');
