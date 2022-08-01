@@ -26,9 +26,9 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
 
   // Check for secret to confirm this is a valid request
   // COMMENTED BECAUSE OF ERRORS
-  // if (req.query.secret !== process.env.REVALIDATION_SECRET) {
-  //   return res.status(401).json({ message: 'Invalid revalidation token' });
-  // }
+  if (req.query.secret !== process.env.REVALIDATION_SECRET) {
+    return res.status(401).json({ message: 'Invalid revalidation token' });
+  }
 
   // add band (here is where authorization would be validated)
   const { newShow } = req.body;
